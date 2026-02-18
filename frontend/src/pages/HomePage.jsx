@@ -1,0 +1,235 @@
+import React, { useState } from 'react';
+import { BarChart3, Table, Database, Code, Mail, Linkedin, Github, ExternalLink, X } from 'lucide-react';
+import { profileData, aboutData, projectsData } from '../mock';
+import { Button } from '../components/ui/button';
+import { Card } from '../components/ui/card';
+import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogClose } from '../components/ui/dialog';
+import { Badge } from '../components/ui/badge';
+
+const iconMap = {
+  BarChart3: BarChart3,
+  Table: Table,
+  Database: Database,
+  Code: Code
+};
+
+const HomePage = () => {
+  const [selectedProject, setSelectedProject] = useState(null);
+
+  const handleProjectClick = (project) => {
+    setSelectedProject(project);
+  };
+
+  const handleCloseModal = () => {
+    setSelectedProject(null);
+  };
+
+  return (
+    <div className="min-h-screen bg-[#0a0a0a]">
+      {/* Header */}
+      <header className="fixed top-0 left-0 right-0 z-50 bg-[#0a0a0a]/80 backdrop-blur-md border-b border-[#1a1a1a]">
+        <div className="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+          <div className="text-xl font-bold text-[#107C11]">
+            {profileData.name}
+          </div>
+          <nav className="flex gap-8">
+            <a href="#sobre" className="text-gray-300 hover:text-[#107C11] transition-colors">
+              Sobre
+            </a>
+            <a href="#projetos" className="text-gray-300 hover:text-[#107C11] transition-colors">
+              Projetos
+            </a>
+          </nav>
+        </div>
+      </header>
+
+      {/* Hero Section */}
+      <section className="pt-32 pb-20 px-6">
+        <div className="max-w-7xl mx-auto">
+          <div className="max-w-4xl">
+            <div className="inline-block mb-4">
+              <Badge variant="outline" className="border-[#107C11] text-[#107C11] text-sm px-4 py-1">
+                Análise de Dados
+              </Badge>
+            </div>
+            <h1 className="text-6xl md:text-7xl font-bold text-white mb-6 leading-tight">
+              Transformo dados em
+              <span className="text-[#107C11]"> decisões estratégicas</span>
+            </h1>
+            <p className="text-xl text-gray-400 mb-8 leading-relaxed">
+              {profileData.description}
+            </p>
+            <div className="flex gap-4 mb-12">
+              <Button 
+                className="bg-[#107C11] hover:bg-[#0d6209] text-white px-8 py-6 text-lg"
+                onClick={() => document.getElementById('projetos').scrollIntoView({ behavior: 'smooth' })}
+              >
+                Ver Projetos
+              </Button>
+              <Button 
+                variant="outline" 
+                className="border-[#107C11] text-[#107C11] hover:bg-[#107C11] hover:text-white px-8 py-6 text-lg"
+                onClick={() => document.getElementById('sobre').scrollIntoView({ behavior: 'smooth' })}
+              >
+                Sobre Mim
+              </Button>
+            </div>
+            {/* Skills */}
+            <div className="flex flex-wrap gap-6">
+              {profileData.skills.map((skill, index) => {
+                const Icon = iconMap[skill.icon];
+                return (
+                  <div key={index} className="flex items-center gap-2 text-gray-300">
+                    <Icon className="w-5 h-5 text-[#107C11]" />
+                    <span>{skill.name}</span>
+                  </div>
+                );
+              })}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* About Section */}
+      <section id="sobre" className="py-20 px-6 bg-[#0f0f0f]">
+        <div className="max-w-7xl mx-auto">
+          <div className="max-w-3xl mx-auto text-center">
+            <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
+              {aboutData.title}
+            </h2>
+            <p className="text-lg text-gray-400 mb-8 leading-relaxed">
+              {aboutData.description}
+            </p>
+            <div className="grid md:grid-cols-2 gap-6 mt-12">
+              <Card className="bg-[#1a1a1a] border-[#2a2a2a] p-6">
+                <div className="text-[#107C11] font-semibold mb-2">Experiência</div>
+                <div className="text-gray-300">{aboutData.experience}</div>
+              </Card>
+              <Card className="bg-[#1a1a1a] border-[#2a2a2a] p-6">
+                <div className="text-[#107C11] font-semibold mb-2">Foco Atual</div>
+                <div className="text-gray-300">{aboutData.focus}</div>
+              </Card>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Projects Section */}
+      <section id="projetos" className="py-20 px-6">
+        <div className="max-w-7xl mx-auto">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
+              Meus Projetos
+            </h2>
+            <p className="text-lg text-gray-400">
+              Dashboards interativos desenvolvidos com Power BI e Excel
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-2 gap-8">
+            {projectsData.map((project) => (
+              <Card 
+                key={project.id}
+                className="bg-[#1a1a1a] border-[#2a2a2a] overflow-hidden hover:border-[#107C11] transition-all duration-300 cursor-pointer group"
+                onClick={() => handleProjectClick(project)}
+              >
+                <div className="relative overflow-hidden">
+                  <img 
+                    src={project.image} 
+                    alt={project.title}
+                    className="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-300"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#0a0a0a] to-transparent opacity-60"></div>
+                </div>
+                <div className="p-6">
+                  <h3 className="text-2xl font-bold text-white mb-3">
+                    {project.title}
+                  </h3>
+                  <p className="text-gray-400 mb-4">
+                    {project.description}
+                  </p>
+                  <div className="flex flex-wrap gap-2 mb-4">
+                    {project.technologies.map((tech, index) => (
+                      <Badge key={index} variant="secondary" className="bg-[#107C11]/20 text-[#107C11] border-[#107C11]/30">
+                        {tech}
+                      </Badge>
+                    ))}
+                  </div>
+                  <div className="flex items-center text-[#107C11] font-semibold group-hover:gap-2 transition-all">
+                    Ver Dashboard
+                    <ExternalLink className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
+                  </div>
+                </div>
+              </Card>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Footer */}
+      <footer className="py-12 px-6 border-t border-[#1a1a1a]">
+        <div className="max-w-7xl mx-auto">
+          <div className="flex flex-col md:flex-row justify-between items-center gap-6">
+            <div className="text-gray-400">
+              © 2024 {profileData.name}. Todos os direitos reservados.
+            </div>
+            <div className="flex gap-6">
+              <a href={`mailto:${profileData.email}`} className="text-gray-400 hover:text-[#107C11] transition-colors">
+                <Mail className="w-6 h-6" />
+              </a>
+              <a href={profileData.linkedin} target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-[#107C11] transition-colors">
+                <Linkedin className="w-6 h-6" />
+              </a>
+              <a href={profileData.github} target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-[#107C11] transition-colors">
+                <Github className="w-6 h-6" />
+              </a>
+            </div>
+          </div>
+        </div>
+      </footer>
+
+      {/* Project Modal */}
+      <Dialog open={selectedProject !== null} onOpenChange={handleCloseModal}>
+        <DialogContent className="max-w-6xl h-[90vh] bg-[#1a1a1a] border-[#2a2a2a] text-white">
+          <DialogHeader>
+            <DialogTitle className="text-2xl font-bold text-white">
+              {selectedProject?.title}
+            </DialogTitle>
+            <DialogClose className="absolute right-4 top-4 rounded-sm opacity-70 ring-offset-background transition-opacity hover:opacity-100 focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 disabled:pointer-events-none data-[state=open]:bg-accent data-[state=open]:text-muted-foreground">
+              <X className="h-4 w-4 text-white" />
+              <span className="sr-only">Close</span>
+            </DialogClose>
+          </DialogHeader>
+          {selectedProject && (
+            <div className="flex flex-col gap-4 h-full">
+              <div className="text-gray-400">
+                {selectedProject.description}
+              </div>
+              <div className="flex flex-wrap gap-2 mb-2">
+                {selectedProject.highlights.map((highlight, index) => (
+                  <Badge key={index} variant="outline" className="border-[#107C11] text-[#107C11]">
+                    {highlight}
+                  </Badge>
+                ))}
+              </div>
+              <div className="flex-1 bg-[#0a0a0a] rounded-lg overflow-hidden border border-[#2a2a2a]">
+                <iframe
+                  src={selectedProject.powerbiUrl}
+                  className="w-full h-full"
+                  frameBorder="0"
+                  allowFullScreen={true}
+                  title={selectedProject.title}
+                />
+              </div>
+              <div className="text-sm text-gray-500 text-center">
+                Dashboard interativo - Explore os dados clicando nos elementos
+              </div>
+            </div>
+          )}
+        </DialogContent>
+      </Dialog>
+    </div>
+  );
+};
+
+export default HomePage;

@@ -5,10 +5,10 @@ export const profileData = {
   title: "Analista de Dados",
   description: "Insights de valor que geram vantagem competitiva",
   skills: [
-    { name: "Power BI", icon: "BarChart3" },
-    { name: "Excel", icon: "Table" },
-    { name: "SQL", icon: "Database" },
-    { name: "Python", icon: "Code" }
+    { name: "Power BI", icon: "BarChart3", description: "Criação de dashboards interativos e análise de BI.", pontosFortes:" ", uso:" " },
+    { name: "Excel", icon: "Table", description: "Tratamento de dados complexos e automação com fórmulas.", pontosFortes:" ", uso:" " },
+    { name: "SQL", icon: "Database", description: "Manipulação de grandes bases de dados e consultas otimizadas.", pontosFortes:" ", uso:" " },
+    { name: "Python", icon: "Code", description: "Automação, ciência de dados e bibliotecas como Pandas.", pontosFortes:" ", uso:" " }
   ],
   email: "willian.ferreiraw30@gmail.com",
   linkedin: "https://www.linkedin.com/in/willian-ferreira-879b501b8/",

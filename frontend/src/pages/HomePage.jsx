@@ -40,27 +40,22 @@ const HomePage = () => {
       {/* Header */}
       <header className="fixed top-0 left-0 right-0 z-50 bg-[#0a0a0a]/80 backdrop-blur-md border-b border-[#1a1a1a]">
         <div className="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
-          {/* Lado esquerdo: Nome */}
           <div className="text-xl font-bold text-[#00FF40]">
             {profileData.name}
           </div>
 
-          {/* Lado direito: Navegação + ícones */}
           <div className="flex items-center gap-8">
-
-            {/*Menu de navegação */}
             <nav className="hidden sm:flex gap-8">
-              <a href="#sobre" className="text-gray-300 hover:text-[#00FF40] trasition-colors">
+              <a href="#sobre" className="text-gray-300 hover:text-[#00FF40] transition-colors">
                 Sobre
               </a>
-              <a href="#projetos" className="text-gray-300 hover:text-[#00FF40] trasition-colors">
+              <a href="#projetos" className="text-gray-300 hover:text-[#00FF40] transition-colors">
                 Projetos
               </a>
             </nav>
 
-            {/* Linha divisória */}
-            <div className="hidden sm:block w-[1px] h-6 bg-[#1a1a1a]"></div>
-            {/* Ícones de contato */}
+            <div className="hidden sm:block w-[1.5px] h-6 bg-[#00FF40]"></div>
+            
             <div className="flex gap-5">
               <a href={`mailto:${profileData.email}`} className="text-gray-400 hover:text-[#00FF40] transition-colors">
                 <Mail className="w-6 h-6" />
@@ -74,12 +69,10 @@ const HomePage = () => {
             </div>
           </div>
         </div> 
-
       </header>
 
       {/* Hero Section */}
       <section className="pt-32 pb-20 px-6 relative overflow-hidden">
-        {/* Background Image with Parallax */}
         <div 
           className="absolute inset-0 z-0"
           style={{
@@ -111,27 +104,51 @@ const HomePage = () => {
             </p>
             <div className="flex gap-4 mb-12">
               <Button 
-                className="bg-[#00FF40] text-[#000000] hover:bg-[#0d6209] hover:text-white px-8 py-6 text-lg"
+                className="bg-[#00FF40] text-[#000000] hover:bg-[#0d6209] hover:text-white px-8 py-6 text-lg transition-all"
                 onClick={() => document.getElementById('projetos').scrollIntoView({ behavior: 'smooth' })}
               >
                 Ver Projetos
               </Button>
               <Button 
                 variant="outline" 
-                className="border-[#00FF40] text-[#00FF40] hover:bg-[#107C11] hover:text-white px-8 py-6 text-lg"
+                className="border-[#00FF40] text-[#00FF40] hover:bg-[#00FF40]/10 px-8 py-6 text-lg transition-all"
                 onClick={() => document.getElementById('sobre').scrollIntoView({ behavior: 'smooth' })}
               >
                 Sobre Mim
               </Button>
             </div>
-            {/* Skills */}
+
+            {/* Skills com Tooltip de Tópicos */}
             <div className="flex flex-wrap gap-6">
               {profileData.skills.map((skill, index) => {
                 const Icon = iconMap[skill.icon];
                 return (
-                  <div key={index} className="flex items-center gap-2 text-gray-300">
+                  <div key={index} className="group relative flex items-center gap-2 text-gray-300 cursor-help">
                     <Icon className="w-5 h-5 text-[#00FF40]" />
-                    <span>{skill.name}</span>
+                    <span className="group-hover:text-white transition-colors">{skill.name}</span>
+
+                    {/* Telinha Flutuante (Tooltip) */}
+                    <div className="absolute bottom-full mb-3 left-1/2 -translate-x-1/2 w-64 
+                                    p-4 bg-[#1a1a1a] border border-[#00FF40]/40 text-xs text-white 
+                                    rounded-xl shadow-2xl opacity-0 group-hover:opacity-100 
+                                    transition-all duration-300 pointer-events-none z-50">
+                      
+                      <p className="font-bold text-[#00FF40] mb-2 text-sm border-b border-[#00FF40]/20 pb-1">
+                        {skill.name}
+                      </p>
+                      
+                      <div className="space-y-2 text-gray-300">
+                        <p>
+                          <strong className="text-white">Pontos fortes:</strong> {skill.pontosFortes || "Não informado"}
+                        </p>
+                        <p>
+                          <strong className="text-white">Melhor utilizado em:</strong> {skill.uso || "Não informado"}
+                        </p>
+                      </div>
+
+                      {/* Seta do Balão */}
+                      <div className="absolute top-full left-1/2 -translate-x-1/2 border-8 border-transparent border-t-[#1a1a1a]"></div>
+                    </div>
                   </div>
                 );
               })}
@@ -183,37 +200,37 @@ const HomePage = () => {
                 onClick={() => handleProjectClick(project)}
                 className="cursor-pointer"
               >
-              <Card 
-                className="bg-[#1a1a1a] border-[#2a2a2a] overflow-hidden hover:border-[#00FF40] transition-all duration-300 group"
-              >
-                <div className="relative overflow-hidden">
-                  <img 
-                    src={project.image} 
-                    alt={project.title}
-                    className="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-300"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-[#0a0a0a] to-transparent opacity-60"></div>
-                </div>
-                <div className="p-6">
-                  <h3 className="text-2xl font-bold text-white mb-3">
-                    {project.title}
-                  </h3>
-                  <p className="text-gray-400 mb-4">
-                    {project.description}
-                  </p>
-                  <div className="flex flex-wrap gap-2 mb-4">
-                    {project.technologies.map((tech, index) => (
-                      <Badge key={index} variant="secondary" className="bg-[#00FF40]/20 text-[#00FF40] border-[#00FF40]/30">
-                        {tech}
-                      </Badge>
-                    ))}
+                <Card 
+                  className="bg-[#1a1a1a] border-[#2a2a2a] overflow-hidden hover:border-[#00FF40] transition-all duration-300 group"
+                >
+                  <div className="relative overflow-hidden">
+                    <img 
+                      src={project.image} 
+                      alt={project.title}
+                      className="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-300"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-[#0a0a0a] to-transparent opacity-60"></div>
                   </div>
-                  <div className="flex items-center text-[#00FF40] font-semibold group-hover:gap-2 transition-all">
-                    Ver Dashboard
-                    <ExternalLink className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
+                  <div className="p-6">
+                    <h3 className="text-2xl font-bold text-white mb-3">
+                      {project.title}
+                    </h3>
+                    <p className="text-gray-400 mb-4">
+                      {project.description}
+                    </p>
+                    <div className="flex flex-wrap gap-2 mb-4">
+                      {project.technologies.map((tech, index) => (
+                        <Badge key={index} variant="secondary" className="bg-[#00FF40]/20 text-[#00FF40] border-[#00FF40]/30">
+                          {tech}
+                        </Badge>
+                      ))}
+                    </div>
+                    <div className="flex items-center text-[#00FF40] font-semibold group-hover:gap-2 transition-all">
+                      Ver Dashboard
+                      <ExternalLink className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
+                    </div>
                   </div>
-                </div>
-              </Card>
+                </Card>
               </div>
             ))}
           </div>
@@ -222,22 +239,20 @@ const HomePage = () => {
 
       {/* Footer */}
       <footer className="py-12 px-6 border-t border-[#1a1a1a]">
-        <div className="max-w-7xl mx-auto">
-          <div className="flex flex-col md:flex-row justify-between items-center gap-6">
-            <div className="text-gray-400">
-              © 2026 Portfólio Profissional de Willian Werneck ferreira. Todos os direitos reservados.
-            </div>
-            <div className="flex gap-6">
-              <a href={`mailto:${profileData.email}`} className="text-gray-400 hover:text-[#00FF40] transition-colors">
-                <Mail className="w-6 h-6" />
-              </a>
-              <a href={profileData.linkedin} target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-[#00FF40] transition-colors">
-                <Linkedin className="w-6 h-6" />
-              </a>
-              <a href={profileData.github} target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-[#00FF40] transition-colors">
-                <Github className="w-6 h-6" />
-              </a>
-            </div>
+        <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-6">
+          <div className="text-gray-400 text-sm">
+            © 2026 Portfólio Profissional de Willian Werneck Ferreira.
+          </div>
+          <div className="flex gap-6">
+            <a href={`mailto:${profileData.email}`} className="text-gray-400 hover:text-[#00FF40] transition-colors">
+              <Mail className="w-6 h-6" />
+            </a>
+            <a href={profileData.linkedin} target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-[#00FF40] transition-colors">
+              <Linkedin className="w-6 h-6" />
+            </a>
+            <a href={profileData.github} target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-[#00FF40] transition-colors">
+              <Github className="w-6 h-6" />
+            </a>
           </div>
         </div>
       </footer>
@@ -249,13 +264,12 @@ const HomePage = () => {
             <DialogTitle className="text-2xl font-bold text-white">
               {selectedProject?.title}
             </DialogTitle>
-            <DialogClose className="absolute right-4 top-4 rounded-sm opacity-70 ring-offset-background transition-opacity hover:opacity-100 focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 disabled:pointer-events-none data-[state=open]:bg-accent data-[state=open]:text-muted-foreground">
-              <X className="h-4 w-4 text-white" />
-              <span className="sr-only">Close</span>
+            <DialogClose className="absolute right-4 top-4 text-white hover:text-[#00FF40]">
+              <X className="h-5 w-5" />
             </DialogClose>
           </DialogHeader>
           {selectedProject && (
-            <div className="flex flex-col gap-4 h-full">
+            <div className="flex flex-col gap-4 h-full overflow-hidden">
               <div className="text-gray-400">
                 {selectedProject.description}
               </div>
@@ -274,9 +288,6 @@ const HomePage = () => {
                   allowFullScreen={true}
                   title={selectedProject.title}
                 />
-              </div>
-              <div className="text-sm text-gray-500 text-center">
-                Dashboard interativo - Explore os dados clicando nos elementos
               </div>
             </div>
           )}

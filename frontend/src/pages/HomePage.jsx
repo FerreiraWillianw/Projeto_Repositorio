@@ -44,8 +44,18 @@ const HomePage = () => {
       </header>
 
       {/* Hero Section */}
-      <section className="pt-32 pb-20 px-6">
-        <div className="max-w-7xl mx-auto">
+      <section className="pt-32 pb-20 px-6 relative overflow-hidden">
+        {/* Background Image */}
+        <div className="absolute inset-0 z-0">
+          <img 
+            src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=1920&q=80" 
+            alt="Data Analytics Background"
+            className="w-full h-full object-cover"
+          />
+          <div className="absolute inset-0 bg-gradient-to-r from-[#0a0a0a] via-[#0a0a0a]/95 to-[#0a0a0a]/80"></div>
+        </div>
+        
+        <div className="max-w-7xl mx-auto relative z-10">
           <div className="max-w-4xl">
             <div className="inline-block mb-4">
               <Badge variant="outline" className="border-[#107C11] text-[#107C11] text-sm px-4 py-1">

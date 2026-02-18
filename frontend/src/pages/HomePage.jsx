@@ -128,10 +128,13 @@ const HomePage = () => {
 
           <div className="grid md:grid-cols-2 gap-8">
             {projectsData.map((project) => (
-              <Card 
+              <div 
                 key={project.id}
-                className="bg-[#1a1a1a] border-[#2a2a2a] overflow-hidden hover:border-[#107C11] transition-all duration-300 cursor-pointer group"
                 onClick={() => handleProjectClick(project)}
+                className="cursor-pointer"
+              >
+              <Card 
+                className="bg-[#1a1a1a] border-[#2a2a2a] overflow-hidden hover:border-[#107C11] transition-all duration-300 group"
               >
                 <div className="relative overflow-hidden">
                   <img 

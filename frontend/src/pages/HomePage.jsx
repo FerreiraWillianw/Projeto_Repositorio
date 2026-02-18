@@ -56,10 +56,16 @@ const HomePage = () => {
 
       {/* Hero Section */}
       <section className="pt-32 pb-20 px-6 relative overflow-hidden">
-        {/* Background Image */}
-        <div className="absolute inset-0 z-0">
+        {/* Background Image with Parallax */}
+        <div 
+          className="absolute inset-0 z-0"
+          style={{
+            transform: `translateY(${scrollY * 0.5}px)`,
+            transition: 'transform 0.1s ease-out'
+          }}
+        >
           <img 
-            src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=1920&q=80" 
+            src="https://images.pexels.com/photos/10020092/pexels-photo-10020092.jpeg?auto=compress&cs=tinysrgb&w=1920"
             alt="Data Analytics Background"
             className="w-full h-full object-cover"
           />

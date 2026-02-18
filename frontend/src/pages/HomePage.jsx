@@ -164,6 +164,7 @@ const HomePage = () => {
                   </div>
                 </div>
               </Card>
+              </div>
             ))}
           </div>
         </div>

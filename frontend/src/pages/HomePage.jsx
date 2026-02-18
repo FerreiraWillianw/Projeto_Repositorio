@@ -15,6 +15,17 @@ const iconMap = {
 
 const HomePage = () => {
   const [selectedProject, setSelectedProject] = useState(null);
+  const [scrollY, setScrollY] = useState(0);
+
+  // Parallax effect
+  React.useEffect(() => {
+    const handleScroll = () => {
+      setScrollY(window.scrollY);
+    };
+    
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
   const handleProjectClick = (project) => {
     setSelectedProject(project);

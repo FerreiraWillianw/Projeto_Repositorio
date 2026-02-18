@@ -40,18 +40,29 @@ const HomePage = () => {
       {/* Header */}
       <header className="fixed top-0 left-0 right-0 z-50 bg-[#0a0a0a]/80 backdrop-blur-md border-b border-[#1a1a1a]">
         <div className="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
-          <div className="text-xl font-bold text-[#107C11]">
+          {/* Lado esquerdo: Nome */}
+          <div className="text-xl font-bold text-[#00FF40]">
             {profileData.name}
           </div>
-          <nav className="flex gap-8">
-            <a href="#sobre" className="text-gray-300 hover:text-[#107C11] transition-colors">
-              Sobre
-            </a>
-            <a href="#projetos" className="text-gray-300 hover:text-[#107C11] transition-colors">
-              Projetos
-            </a>
-          </nav>
-        </div>
+
+          {/* Lado direito: Navegação + ícones */}
+          <div className="flex items-center gap-8">
+
+            {/*Menu de navegação */}
+            <nav className="hidden sm:flex gap-8">
+              <a href="#sobre" className="text-gray-300 hover:text-[#00FF40] trasition-colors">
+                Sobre
+              </a>
+              <a href="#projetos" className="text-gray-300 hover:text-[#00FF40] trasition-colors">
+                Projetos
+              </a>
+            </nav>
+
+            {/* Linha divisória */}
+            <div className="hidden sm:nlock w-[1px] h-6 bg-[#1a1a1a]"></div>
+
+          </div>
+        </div> 
       </header>
 
       {/* Hero Section */}
@@ -65,37 +76,37 @@ const HomePage = () => {
           }}
         >
           <img 
-            src="https://images.pexels.com/photos/10020092/pexels-photo-10020092.jpeg?auto=compress&cs=tinysrgb&w=1920"
+            src="https://images.pexels.com/photos/577210/pexels-photo-577210.jpeg"
             alt="Data Analytics Background"
             className="w-full h-full object-cover"
           />
-          <div className="absolute inset-0 bg-gradient-to-r from-[#0a0a0a] via-[#0a0a0a]/95 to-[#0a0a0a]/80"></div>
+          <div className="absolute inset-0 bg-gradient-to-r from-[#0a0a0a] via-[#0a0a0a]/80 to-[#0a0a0a]/50"></div>
         </div>
         
         <div className="max-w-7xl mx-auto relative z-10">
           <div className="max-w-4xl">
             <div className="inline-block mb-4">
-              <Badge variant="outline" className="border-[#107C11] text-[#107C11] text-sm px-4 py-1">
+              <Badge variant="outline" className="border-[#00FF40] text-[#00FF40] text-sm px-4 py-1">
                 Análise de Dados
               </Badge>
             </div>
             <h1 className="text-6xl md:text-7xl font-bold text-white mb-6 leading-tight">
-              Transformo dados em
-              <span className="text-[#107C11]"> decisões estratégicas</span>
+              Transformando dados em
+              <span className="text-[#00FF40]"> inteligência de negócios</span>
             </h1>
             <p className="text-xl text-gray-400 mb-8 leading-relaxed">
               {profileData.description}
             </p>
             <div className="flex gap-4 mb-12">
               <Button 
-                className="bg-[#107C11] hover:bg-[#0d6209] text-white px-8 py-6 text-lg"
+                className="bg-[#00FF40] text-[#000000] hover:bg-[#0d6209] hover:text-white px-8 py-6 text-lg"
                 onClick={() => document.getElementById('projetos').scrollIntoView({ behavior: 'smooth' })}
               >
                 Ver Projetos
               </Button>
               <Button 
                 variant="outline" 
-                className="border-[#107C11] text-[#107C11] hover:bg-[#107C11] hover:text-white px-8 py-6 text-lg"
+                className="border-[#00FF40] text-[#00FF40] hover:bg-[#107C11] hover:text-white px-8 py-6 text-lg"
                 onClick={() => document.getElementById('sobre').scrollIntoView({ behavior: 'smooth' })}
               >
                 Sobre Mim
@@ -107,7 +118,7 @@ const HomePage = () => {
                 const Icon = iconMap[skill.icon];
                 return (
                   <div key={index} className="flex items-center gap-2 text-gray-300">
-                    <Icon className="w-5 h-5 text-[#107C11]" />
+                    <Icon className="w-5 h-5 text-[#00FF40]" />
                     <span>{skill.name}</span>
                   </div>
                 );
@@ -129,11 +140,11 @@ const HomePage = () => {
             </p>
             <div className="grid md:grid-cols-2 gap-6 mt-12">
               <Card className="bg-[#1a1a1a] border-[#2a2a2a] p-6">
-                <div className="text-[#107C11] font-semibold mb-2">Experiência</div>
+                <div className="text-[#00FF40] font-semibold mb-2">Experiência</div>
                 <div className="text-gray-300">{aboutData.experience}</div>
               </Card>
               <Card className="bg-[#1a1a1a] border-[#2a2a2a] p-6">
-                <div className="text-[#107C11] font-semibold mb-2">Foco Atual</div>
+                <div className="text-[#00FF40] font-semibold mb-2">Foco Atual</div>
                 <div className="text-gray-300">{aboutData.focus}</div>
               </Card>
             </div>
@@ -161,7 +172,7 @@ const HomePage = () => {
                 className="cursor-pointer"
               >
               <Card 
-                className="bg-[#1a1a1a] border-[#2a2a2a] overflow-hidden hover:border-[#107C11] transition-all duration-300 group"
+                className="bg-[#1a1a1a] border-[#2a2a2a] overflow-hidden hover:border-[#00FF40] transition-all duration-300 group"
               >
                 <div className="relative overflow-hidden">
                   <img 
@@ -180,12 +191,12 @@ const HomePage = () => {
                   </p>
                   <div className="flex flex-wrap gap-2 mb-4">
                     {project.technologies.map((tech, index) => (
-                      <Badge key={index} variant="secondary" className="bg-[#107C11]/20 text-[#107C11] border-[#107C11]/30">
+                      <Badge key={index} variant="secondary" className="bg-[#00FF40]/20 text-[#00FF40] border-[#00FF40]/30">
                         {tech}
                       </Badge>
                     ))}
                   </div>
-                  <div className="flex items-center text-[#107C11] font-semibold group-hover:gap-2 transition-all">
+                  <div className="flex items-center text-[#00FF40] font-semibold group-hover:gap-2 transition-all">
                     Ver Dashboard
                     <ExternalLink className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
                   </div>
@@ -202,16 +213,16 @@ const HomePage = () => {
         <div className="max-w-7xl mx-auto">
           <div className="flex flex-col md:flex-row justify-between items-center gap-6">
             <div className="text-gray-400">
-              © 2024 {profileData.name}. Todos os direitos reservados.
+              © 2026 Portfólio Profissional de Willian Werneck ferreira. Todos os direitos reservados.
             </div>
             <div className="flex gap-6">
-              <a href={`mailto:${profileData.email}`} className="text-gray-400 hover:text-[#107C11] transition-colors">
+              <a href={`mailto:${profileData.email}`} className="text-gray-400 hover:text-[#00FF40] transition-colors">
                 <Mail className="w-6 h-6" />
               </a>
-              <a href={profileData.linkedin} target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-[#107C11] transition-colors">
+              <a href={profileData.linkedin} target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-[#00FF40] transition-colors">
                 <Linkedin className="w-6 h-6" />
               </a>
-              <a href={profileData.github} target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-[#107C11] transition-colors">
+              <a href={profileData.github} target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-[#00FF40] transition-colors">
                 <Github className="w-6 h-6" />
               </a>
             </div>
@@ -238,7 +249,7 @@ const HomePage = () => {
               </div>
               <div className="flex flex-wrap gap-2 mb-2">
                 {selectedProject.highlights.map((highlight, index) => (
-                  <Badge key={index} variant="outline" className="border-[#107C11] text-[#107C11]">
+                  <Badge key={index} variant="outline" className="border-[#00FF40] text-[#00FF40]">
                     {highlight}
                   </Badge>
                 ))}

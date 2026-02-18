@@ -1,9 +1,9 @@
 // Mock data para portfolio de análise de dados
 
 export const profileData = {
-  name: "Willian Ferreira",
+  name: "Portfólio Profissional de Willian Ferreira",
   title: "Analista de Dados",
-  description: "Transformando dados em insights estratégicos de valor através de dashboards interativos e análises inteligentes.",
+  description: "Insights de valor que geram vantagem competitiva",
   skills: [
     { name: "Power BI", icon: "BarChart3" },
     { name: "Excel", icon: "Table" },
@@ -16,8 +16,8 @@ export const profileData = {
 };
 
 export const aboutData = {
-  title: "Sobre Mim",
-  description: "Especialista em transformar dados complexos em visualizações claras e palpáveis. Com experiência em Power BI e Excel, desenvolvo dashboards interativos que auxiliam na tomada de decisões estratégicas.",
+  title: "Sobre mim",
+  description: "Meu nome é Willian Ferreira. Especialista em transformar dados complexos em visualizações claras e palpáveis. Com experiência em Power BI e Excel e aprofundando meus conhecimentos na área de programação com Python e SQL, desenvolvo dashboards interativos que auxiliam na tomada de decisões estratégicas com o objetivo de promover inteligência de negócios e contribuir para uma vantagem competitiva robusta.",
   experience: "+3 anos de experiência com dados, aprofundando cada vez mais meus conhecimentos com o aprendizado constante.",
   focus: "Foco atual: Dashboards executivos com Power BI."
 };

@@ -59,10 +59,22 @@ const HomePage = () => {
             </nav>
 
             {/* Linha divisória */}
-            <div className="hidden sm:nlock w-[1px] h-6 bg-[#1a1a1a]"></div>
-
+            <div className="hidden sm:block w-[1px] h-6 bg-[#1a1a1a]"></div>
+            {/* Ícones de contato */}
+            <div className="flex gap-5">
+              <a href={`mailto:${profileData.email}`} className="text-gray-400 hover:text-[#00FF40] transition-colors">
+                <Mail className="w-6 h-6" />
+              </a>
+              <a href={profileData.linkedin} target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-[#00FF40] transition-colors">
+                <Linkedin className="w-5 h-5" />
+              </a>
+              <a href={profileData.github} target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-[#00FF40] transition-colors">
+                <Github className="w-5 h-5" />
+              </a>
+            </div>
           </div>
         </div> 
+
       </header>
 
       {/* Hero Section */}

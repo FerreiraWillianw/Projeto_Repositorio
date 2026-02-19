@@ -241,7 +241,7 @@ const HomePage = () => {
       <footer className="py-12 px-6 border-t border-[#1a1a1a]">
         <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-6">
           <div className="text-gray-400 text-sm">
-            © 2026 Portfólio Profissional de Willian Werneck Ferreira.
+            © 2026 Portfólio Profissional de Willian Werneck Ferreira. Todos os direitos reservados.
           </div>
           <div className="flex gap-6">
             <a href={`mailto:${profileData.email}`} className="text-gray-400 hover:text-[#00FF40] transition-colors">

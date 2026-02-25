@@ -1,4 +1,5 @@
 // Mock data para portfolio de análise de dados
+import FotoDashHR from './assets/dashboard_HR.png';
 
 export const profileData = {
   name: "Portfólio Profissional de Willian Ferreira",
@@ -25,11 +26,11 @@ export const aboutData = {
 export const projectsData = [
   {
     id: 1,
-    title: "Análise de Recursos humanos",
-    description: "Análise de recursos humanos",
+    title: "People Analytics - Estratégia, retenção e Liderança",
+    description: "Nesse relatório, desenvolvido para o setor de Recursos Humanos, foram analisados dados de funcionários para identificar padrões de retenção, desempenho e satisfação. O dashboard interativo permite aos gestores explorar métricas como taxa de rotatividade, satisfação dos funcionários e desempenho por departamento, facilitando a tomada de decisões estratégicas para melhorar a gestão de talentos.",
     technologies: ["Power BI", "Excel"],
-    image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&q=80",
-    powerbiUrl: "https://app.powerbi.com/view?r=SAMPLE_REPORT_ID",
+    image: FotoDashHR,
+    powerbiUrl: "https://app.powerbi.com/view?r=eyJrIjoiOWYxNjFlMzUtMDA2OC00ZWIyLTlhZGEtOTNkZGE1MjE1YmMwIiwidCI6IjJlZmMxNDk2LTE4NTktNDEyNy1iMDc4LTUwMTBhNGZlNGI5ZiJ9",
     highlights: ["Vendas por região", "Análise temporal", "Top produtos"]
   }
 ];

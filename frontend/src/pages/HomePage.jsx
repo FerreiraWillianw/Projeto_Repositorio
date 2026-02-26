@@ -259,9 +259,9 @@ const HomePage = () => {
 
       {/* Project Modal */}
       <Dialog open={selectedProject !== null} onOpenChange={handleCloseModal}>
-        <DialogContent className="max-w-6xl h-[90vh] bg-[#1a1a1a] border-[#2a2a2a] text-white">
-          <DialogHeader>
-            <DialogTitle className="text-2xl font-bold text-white">
+        <DialogContent className="max-w-6xl h-[95vh] bg-[#1a1a1a] border-[#2a2a2a] text-white flex flex-col p-6">
+          <DialogHeader className="mb-2"> {/* Reduzir a margem aqui */}
+            <DialogTitle className="text-xl font-bold text-white">
               {selectedProject?.title}
             </DialogTitle>
             <DialogClose className="absolute right-4 top-4 text-white hover:text-[#00FF40]">
@@ -269,18 +269,21 @@ const HomePage = () => {
             </DialogClose>
           </DialogHeader>
           {selectedProject && (
-            <div className="flex flex-col gap-4 h-full overflow-hidden">
-              <div className="text-gray-400">
-                {selectedProject.description}
-              </div>
-              <div className="flex flex-wrap gap-2 mb-2">
+            <div className="flex flex-col h-full overflow-hidden">
+              {/* Descrição e Badges em um linha ou bloco menor */}
+              <div className="mb-4">
+              <p className="text-sm text-gray-400 mb-2">{selectedProject.description}</p>
+              <div className="flex flex-wrap gap-2">
                 {selectedProject.highlights.map((highlight, index) => (
-                  <Badge key={index} variant="outline" className="border-[#00FF40] text-[#00FF40]">
+                  <Badge key={index} variant="outline" className="text-[10px] border-[#00FF40] text-[#00FF40]">
                     {highlight}
                   </Badge>
                 ))}
+                </div>
               </div>
-              <div className="flex-1 bg-[#0a0a0a] rounded-lg overflow-hidden border border-[#2a2a2a]">
+
+              {/* Iframe do Power BI ocupando o restante do modal */}
+              <div className="grow bg-[#0a0a0a] rounded-lg overflow-hidden border border-[#2a2a2a] min-h-[400px]">
                 <iframe
                   src={selectedProject.powerbiUrl}
                   className="w-full h-full"

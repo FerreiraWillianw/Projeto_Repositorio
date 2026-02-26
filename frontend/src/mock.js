@@ -26,11 +26,11 @@ export const aboutData = {
 export const projectsData = [
   {
     id: 1,
-    title: "People Analytics - Estratégia, retenção e Liderança",
+    title: "People Analytics - Estratégia, Retenção e Liderança",
     description: "Nesse relatório, desenvolvido para o setor de Recursos Humanos, foram analisados dados de funcionários para identificar padrões de retenção, desempenho e satisfação. O dashboard interativo permite aos gestores explorar métricas como taxa de rotatividade, satisfação dos funcionários e desempenho por departamento, facilitando a tomada de decisões estratégicas para melhorar a gestão de talentos.",
     technologies: ["Power BI", "Excel"],
     image: FotoDashHR,
     powerbiUrl: "https://app.powerbi.com/view?r=eyJrIjoiOWYxNjFlMzUtMDA2OC00ZWIyLTlhZGEtOTNkZGE1MjE1YmMwIiwidCI6IjJlZmMxNDk2LTE4NTktNDEyNy1iMDc4LTUwMTBhNGZlNGI5ZiJ9",
-    highlights: ["Vendas por região", "Análise temporal", "Top produtos"]
+    highlights: ["Custo médio de contratação", "Taxa de Turnover", "Turnover por Gestor", "Relação de Desligados e seus Scores"]
   }
 ];

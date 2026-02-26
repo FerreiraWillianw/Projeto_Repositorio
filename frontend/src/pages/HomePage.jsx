@@ -264,6 +264,9 @@ const HomePage = () => {
             <DialogTitle className="text-xl font-bold text-white">
               {selectedProject?.title}
             </DialogTitle>
+            <DialogClose className="absolute right-4 top-4 text-white hover:text-[#00FF40]">
+              <X className="h-5 w-5" />
+            </DialogClose>
           </DialogHeader>
           {selectedProject && (
             <div className="flex flex-col h-full overflow-hidden">

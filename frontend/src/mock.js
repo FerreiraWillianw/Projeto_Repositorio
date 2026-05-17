@@ -43,7 +43,7 @@ export const projectsData = [
     image: FotoDashAmazon, // Se você tiver um print do dashboard escuro, pode importar e colocar aqui depois!
     powerbiUrl: "https://vendas-amazon-india.streamlit.app/?embed=true", // Coloque o link público do seu app Streamlit aqui
     highlights: ["Quantidade de produtos por categoria", "Preço Original vs. Preço com Desconto", "Relação Preço vs. Nota (Rating)", "Top 10 Produtos Mais Populares"]
-  }
+  },
 
   {
     id: 3,

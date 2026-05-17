@@ -50,7 +50,7 @@ export const projectsData = [
     title: "Em Desenvolvimento..",
     description: "Em Desenvolvimento..",
     technologies: ["Em Desenvolvimento.."],
-    image: FotoDashAmazon, // Se você tiver um print do dashboard escuro, pode importar e colocar aqui depois!
+    image: "", // Se você tiver um print do dashboard escuro, pode importar e colocar aqui depois!
     powerbiUrl: "Em Desenvolvimento..", // Coloque o link público do seu app Streamlit aqui
     highlights: ["Em Desenvolvimento.."]
   }

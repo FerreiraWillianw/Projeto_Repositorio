@@ -1,5 +1,6 @@
 // Mock data para portfolio de análise de dados
 import FotoDashHR from './assets/dashboard_HR.png';
+import FotoDashAmazon from './assets/dashboard_amazon.png';
 
 export const profileData = {
   name: "Portfólio Profissional de Willian Ferreira",
@@ -39,8 +40,8 @@ export const projectsData = [
     title: "Análise de Vendas e Mercado - Amazon",
     description: "Dashboard interativo desenvolvido em Python e Streamlit para monitorar o catálogo de produtos da Amazon India, fonte obitda do Kaggle. O relatório cruza dados de preços originais, valores com desconto, popularidade de produtos e satisfação do cliente para identificar os campeões de vendas e os setores com os descontos mais agressivos.",
     technologies: ["Python", "Pandas", "Streamlit", "Plotly"],
-    image: "", // Se você tiver um print do dashboard escuro, pode importar e colocar aqui depois!
-    powerbiUrl: "https://vendas-amazon-india.streamlit.app/", // Coloque o link público do seu app Streamlit aqui
+    image: FotoDashAmazon, // Se você tiver um print do dashboard escuro, pode importar e colocar aqui depois!
+    powerbiUrl: "https://vendas-amazon-india.streamlit.app/?embed=true", // Coloque o link público do seu app Streamlit aqui
     highlights: ["Quantidade de produtos por categoria", "Preço Original vs. Preço com Desconto", "Relação Preço vs. Nota (Rating)", "Top 10 Produtos Mais Populares"]
   }
 ];

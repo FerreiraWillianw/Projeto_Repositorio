@@ -53,7 +53,7 @@ export const projectsData = [
     description: "Relatório executivo focado em identificar os principais influenciadores do sucesso acadêmico de 1.000 alunos. Utilizando Python e Seaborn, o estudo cruza variáveis contínuas e categóricas como horas de estudo, frequência física, índice de saúde mental e o real impacto do tempo de tela e atividades extracurriculares nas notas finais.",
     technologies: ["Python", "Pandas", "Matplotlib", "Seaborn"],
     image: "", // Insira 'FotoAnaliseEstudantes' aqui se importar um print do gráfico!
-    powerbiUrl: "/projetos/analise_estudantes.html", // Caminho local do arquivo HTML exportado
+    powerbiUrl: "C:\Users\willi\Desktop\Projetos Python\REPOSITORIOS-GITHUB\projeto_repositorio\Projeto_Repositorio\frontend\public\projetos\analise_students_habits.html", // Caminho local do arquivo HTML exportado
     highlights: [
       "Influência linear forte das Horas de Estudo", 
       "Tendência de ganho contínuo por Frequência Escolar", 

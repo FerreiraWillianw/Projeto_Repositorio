@@ -1,6 +1,7 @@
 // Mock data para portfolio de análise de dados
 import FotoDashHR from './assets/dashboard_HR.png';
 import FotoDashAmazon from './assets/dashboard_amazon.png';
+import FotoDashStudents from './assets/dashboard_students.png';
 // Dica: Se você tirar um print dos gráficos no seu navegador, salve como 'analise_estudantes.png' na pasta assets e descomente a linha abaixo:
 // import FotoAnaliseEstudantes from './assets/analise_estudantes.png';
 
@@ -52,7 +53,7 @@ export const projectsData = [
     title: "Análise de Desempenho Estudantil e Fatores Escolares",
     description: "Relatório executivo focado em identificar os principais influenciadores do sucesso acadêmico de 1.000 alunos. Utilizando Python e Seaborn, o estudo cruza variáveis contínuas e categóricas como horas de estudo, frequência física, índice de saúde mental e o real impacto do tempo de tela e atividades extracurriculares nas notas finais.",
     technologies: ["Python", "Pandas", "Matplotlib", "Seaborn"],
-    image: "", // Insira 'FotoAnaliseEstudantes' aqui se importar um print do gráfico!
+    image: FotoDashStudents, // Insira 'FotoAnaliseEstudantes' aqui se importar um print do gráfico!
     powerbiUrl: "/projetos/analise_students_habits.html", // Caminho local do arquivo HTML exportado
     highlights: [
       "Influência linear forte das Horas de Estudo", 
